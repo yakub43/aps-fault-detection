@@ -1,6 +1,8 @@
 from setuptools import find_packages,setup
+from typing import List
 
 REQUIREMENT_FILE_NAME="requirements.txt"
+HYPHEN_E_DOT = "-e ."
 
 def get_requirements() -> List[str]:
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
@@ -17,5 +19,5 @@ setup(
     author="yakub",
     author_email="yakubakku43@gmail.com",
     packages=find_packages(),
-    install_requires=get_requirements(),
+    install_requires=get_requirements()
 )
