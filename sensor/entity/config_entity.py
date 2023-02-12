@@ -11,7 +11,10 @@ TEST_FILE_NAME = "test.csv"
 class TrainingPipelineConfig:
 
     def __init__(self):
-        self.artifact_dir = os.path.join(os.getcwd(), "artifact",f"{datetime.now().strftime('%m%d%Y_%H%M%S')}")
+        try:
+            self.artifact_dir = os.path.join(os.getcwd(), "artifact",f"{datetime.now().strftime('%m%d%Y_%H%M%S')}")
+        except Exception as e:
+            raise SensorException(e, sys)
 
 class DataInjestionConfig:
 
@@ -32,3 +35,13 @@ class DataInjestionConfig:
             return self.__dict__
         except Exception as e:
             raise SensorException(e,sys)
+
+
+class DataValidationConfig:
+        def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+            self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir , "data_validation")
+            self.report_file_path=os.path.join(self.data_validation_dir, "report.yaml")
+            self.missing_threshold:float = 0.2
+            self.base_file_path = os.path.join("aps_failure_training_set1.csv")
+        
+data 

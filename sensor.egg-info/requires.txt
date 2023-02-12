@@ -10,6 +10,7 @@ numpy
 pandas
 pip-chill==1.0.1
 pymongo==4.2.0
+python
 python-dotenv==0.21.0
 scikit-learn
 types-s3transfer==0.6.0.post4
