@@ -14,6 +14,7 @@ def get_collection_as_dataframe(databse_name:str, collection_name:str) -> pd.Dat
     collection-name: collection_name
     ============================================
     return Pandas dataframe of a collection
+    
     """
 
     try:
